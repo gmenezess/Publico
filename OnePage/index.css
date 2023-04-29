@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root{
+    --color-primary: #D9D9D9;
+    --color-dois: #2C2C2C;
+    --color-tres: #caa252;
+    font-family: "Raleway", sans-serif;
+
+     
+
+}
+
+body{
+    padding: 0 1rem;
+}
+
+header,
+.hero-section {
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 0 0px 0px 0px;
+    padding: 0.5rem;
+    background-color: var(--color-dois);
+    width: 75%;
+    color: #fff;
+}
+
+.topico{
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 0 0px 0px 0px;
+    background-color: var(--color-tres);
+    width: 75%;
+}
+
+header img{
+    display: block;
+    margin: 1rem;
+    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+.logo-text {
+    margin-left: 5px;
+    font-size: 3rem;
+    font-weight: bold;
+    padding-left: 180px;
+    color: #fff; /* escolha uma cor que combine com o seu site */
+}
+
+table {
+    width: 25%;
+    float: left;
+}
+
+.negativo {
+    background-color: red;
+  }
+
+.positivo {
+    background-color: green;
+}
+
+td {
+    font-weight: bold;
+    text-align: center;
+}
+
+.tabela {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .tabela td, .tabela th {
+    border: 0.5px solid #ddd;
+    padding: 5px;
+    font-size: 12px;
+  }
+  
+  .tabela th {
+    background-color: #929AAB;
+  }
+  
+  .tabela tr:nth-child(even) {
+    background-color: #929AAB;
+  }
+  
+

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>One Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+
+
+</head>
+<body>
+    <header style="display: flex; align-items: center; margin-right: 0;">
+        <div style="width: 50%;">
+          <div class="logo">
+            <img src="imagens/logo_axiom.png" width="200" height="100" alt="Logo Axiom Capital">
+          </div>
+        </div>
+        <div style="width: 50%;">
+          <span class="logo-text" style="text-align: right;">One Page</span>
+        </div>
+    </header>
+    <main>
+        <section class="topico">
+            <div class="topicos-container">
+              <h2><span>Cotações</span></h2>
+              <h2 class="posicao-time"><span>Posição do time </span></h2>
+            </div>
+          </section>
+          
+          <style>
+            .topicos-container {
+              display: flex;
+              justify-content: space-between;
+              margin: 0px 20px;
+            }
+            
+            h2 {
+              color: black;
+              text-align: center;
+              font-size: 1.25rem;
+            }
+
+            .posicao-time {
+                padding-right: 140px;
+                color: #000;
+            }
+            .carteira {
+                padding-right: 215px;
+            }
+            
+            .benchmark {
+                padding-right: 0px;
+            }
+
+            .anbima {
+                padding-right: 135px;
+            }
+
+            .ima {
+                padding-top: 0px;
+            }
+          
+            .conteiner{
+                display: grid;
+                width: 75%;
+                grid-template-columns: 420px 210px auto auto;
+                grid-template-rows: repeat(3);
+                
+            }
+
+            
+
+            .conteiner > div:nth-child(3) {
+            border-left: 5px solid #694545;
+            }
+            .conteiner > div:nth-child(7) {
+            border-left: 5px solid #694545;
+            }
+            .conteiner > div:nth-child(11) {
+            border-left: 5px solid #694545;
+            }
+            .conteiner > div:nth-child(15) {
+            border-left: 5px solid #694545;
+            }
+            .conteiner > div:nth-child(19) {
+            border-left: 5px solid #694545;
+            }
+            .conteiner > div:nth-child(23) {
+            border-left: 5px solid #694545;
+            }
+            .conteiner > div:nth-child(27) {
+            border-left: 5px solid #694545;
+            }
+            .conteiner > div:nth-child(31) {
+            border-left: 5px solid #694545;
+            }
+            
+
+            .grid-container{
+                display: grid;
+                width: 50%;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(3);
+                
+            }
+
+            .grid-container > div:nth-child(1) {
+            border-right: 5px solid #694545;
+            width: 5;
+            }
+
+            
+            .item{
+                text-align: left;
+                width: 100%;
+                font-size: large;
+                font-weight: bold;
+                padding-left: 10px;
+            }
+
+            .item2{
+                text-align: left;
+                width: 100%;
+                font-size: medium;
+                padding-left: 10px;
+            }
+
+            .linha {
+            height: 10px;
+            }
+
+          </style>
+        
+        <section>
+          <div class="grid-container">
+            <div><table style="width: 650px; height: 250px;" border="1" class="tabela" id="tabela_cotacoes"></table></div>
+            <div><table style="width: 334px; height: 250px;" border="1" class="tabela" id="tabela_pos"></table></div>
+          </div>
+        </section>
+        <section class="hero-section">
+            <div>
+                <h1 style="text-align: center;">
+                    <span>AXIOM INFINITY FIM CP</span>
+                </h1>
+            </div>
+        </section>
+        
+        <section class="topico">
+            <div class="topicos-container">
+              <h2><span>Rentabilidade</span></h2>
+              <h2 class="carteira"><span>Carteira </span></h2>
+            </div>
+          </section>
+          <section>
+            <div class="grid-container">
+              <div class="item-1"><img src="imagens/infinity_cdi_ibov.png" width="630" alt="Imagem"><table style="width: 630px; height: 50px;" border="1" class="tabela" id="tabela_rent"></table></div>
+              <div class="item-2">ndsjaklhasdjhjkash</div>
+            </div>
+          </section>
+          <section class="topico">
+            <div class="topicos-container">
+              <h2 ><span>Histograma de retorno dos fundos MM em 2023</span></h2>
+              <h2 class="benchmark"><span>Benchmark entre 2130 fundos </span></h2>
+            </div>
+          </section>
+          <section>
+            <div class="grid-container">
+              <div><img src="imagens/Histograma_de_retorno .png" width="630" alt="Imagem"></div>
+              <div class="item-2"><img src="imagens/boxplot_ret_sharpe.png" width="360" alt="Imagem"><img src="imagens/boxplot_vol_cagr.png" width="360" alt="Imagem"></div>
+              <div>
+            </div>
+            </div>
+          </section>
+          <section class="topico">
+            <div class="topicos-container">
+              <h2 ><span>Dispersão de retorno pela volatilidade em 2023</span></h2>
+              <h2 class="anbima"><span>Índices Anbima</span></h2>
+            </div>
+          </section>
+          <section>
+            <div class="grid-container">
+              <div><img src="imagens/Dispersão_de_retorno .png" width="630" alt="Imagem"></div>
+              <div class="ima"><img src="imagens/ima.png" width="400" alt="Imagem"></div>
+            </div>
+          </section>
+     </main>
+</body>
+</html>
+
+
+
+
+<script>
+// Carrega o arquivo do Excel com as cotações
+var xhr_cotacoes = new XMLHttpRequest();
+xhr_cotacoes.open('GET', 'cotacoes.xlsx', true);
+xhr_cotacoes.responseType = 'arraybuffer';
+
+xhr_cotacoes.onload = function(e) {
+  var data = new Uint8Array(xhr_cotacoes.response);
+  var workbook = XLSX.read(data, {type: 'array'});
+
+  // Obtém a primeira planilha do Excel com as cotações
+  var sheet_name_list = workbook.SheetNames;
+  var sheet_cotacoes = workbook.Sheets[sheet_name_list[0]];
+
+  // Converte a tabela de cotações para HTML
+  var html_cotacoes = XLSX.utils.sheet_to_html(sheet_cotacoes);
+
+  // Exibe a tabela de cotações na página
+  var tabela_cotacoes = document.getElementById('tabela_cotacoes');
+  tabela_cotacoes.innerHTML = html_cotacoes;
+
+  // Define as cores para o mapa de calor
+  var maxValor = 50;
+  var minValor = -10;
+  var corMin = 'rgba(255,0,0,0.2)';
+  var corMax = 'rgba(0,255,0,0.2)';
+  var corPadrao = 'white';
+
+  // Função para calcular a cor do valor
+  function getColor(valor) {
+    if (valor < 0) {
+      var pct = Math.max(0, Math.min(1, (0 - valor) / (0 - minValor)));
+      var r = 255;
+      var g = Math.round(255 * (1 - pct)*0.4);
+      var b = Math.round(255 * (1 - pct)*0.4);
+      return `rgba(${r},${g},${b},1)`;
+    } else if (valor > 0) {
+      var pct = Math.max(0, Math.min(1, valor / maxValor));
+      var r = Math.round(0 );
+      var g = Math.round(255*(1-pct)*0.7 );;
+      var b = Math.round(0);
+      return `rgba(${r},${g},${b},1)`;
+    } else {
+      return corPadrao;
+    }
+  }
+
+  // Aplica a formatação de cores na tabela de cotações
+  var linhas_cotacoes = tabela_cotacoes.getElementsByTagName("tr");
+  for (var i = 1; i < linhas_cotacoes.length; i++) {
+    var celulas_cotacoes = linhas_cotacoes[i].getElementsByTagName("td");
+    for (var j = 4 ; j < celulas_cotacoes.length; j++) {
+      var valor_cotacoes = parseFloat(celulas_cotacoes[j].textContent);
+      var cor_cotacoes = getColor(valor_cotacoes);
+      celulas_cotacoes[j].style.backgroundColor = cor_cotacoes;
+    }
+  }
+};
+
+xhr_cotacoes.send();
+
+  // Carrega o arquivo do Excel com as posições
+  var xhr_posicoes = new XMLHttpRequest();
+  xhr_posicoes.open('GET', 'pos_time.xlsx', true);
+  xhr_posicoes.responseType = 'arraybuffer';
+
+  xhr_posicoes.onload = function(e) {
+    var data = new Uint8Array(xhr_posicoes.response);
+    var workbook = XLSX.read(data, {type: 'array'});
+
+    // Obtém a primeira planilha do Excel com as posições
+    var sheet_name_list = workbook.SheetNames;
+    var sheet_posicoes = workbook.Sheets[sheet_name_list[0]];
+
+    // Converte a tabela de posições para HTML
+    var html_posicoes = XLSX.utils.sheet_to_html(sheet_posicoes);
+
+    // Exibe a tabela de posições na página
+    var tabela_posicoes = document.getElementById('tabela_pos');
+    tabela_posicoes.innerHTML = html_posicoes;
+
+    // Aplica a formatação de cores na tabela de posições
+    var linhas_posicoes = tabela_posicoes.getElementsByTagName("tr");
+    for (let i = 0; i < linhas_posicoes.length; i++) {
+      const celulas_posicoes = linhas_posicoes[i].getElementsByTagName("td");
+      for (let j = 0 ; j < celulas_posicoes.length; j++) {
+        const valor_posicoes = celulas_posicoes[j].innerHTML.trim();
+          if (valor_posicoes === "Comprado") {
+            celulas_posicoes[j].style.backgroundColor = "green";
+          } else if (valor_posicoes === "Vendido") {
+            celulas_posicoes[j].style.backgroundColor = "red";
+          }else if (valor_posicoes === "Neutro") {
+            celulas_posicoes[j].style.backgroundColor = "blue";
+          }
+        }
+      }
+    };
+
+    xhr_posicoes.send()
+
+    // Carrega o arquivo do Excel com os bench
+    var xhr_bench = new XMLHttpRequest();
+    xhr_bench.open('GET', 'benchmark_fundos.xlsx', true);
+    xhr_bench.responseType = 'arraybuffer';
+
+    xhr_bench.onload = function(e) {
+      var data = new Uint8Array(xhr_bench.response);
+      var workbook = XLSX.read(data, {type: 'array'});
+
+      // Obtém a primeira planilha do Excel com as posições
+      var sheet_name_list = workbook.SheetNames;
+      var sheet_bench = workbook.Sheets[sheet_name_list[0]];
+
+      // Converte a tabela de posições para HTML
+      var html_bench = XLSX.utils.sheet_to_html(sheet_bench);
+
+      // Exibe a tabela de posições na página
+      var tabela_bench = document.getElementById('tabela_bench');
+      tabela_bench.innerHTML = html_bench;
+
+    }
+
+    xhr_bench.send()
+
+
+    // Carrega o arquivo do Excel com os bench
+    var xhr_rent = new XMLHttpRequest();
+    xhr_rent.open('GET', 'rent_fundo.xlsx', true);
+    xhr_rent.responseType = 'arraybuffer';
+
+    xhr_rent.onload = function(e) {
+      var data = new Uint8Array(xhr_rent.response);
+      var workbook = XLSX.read(data, {type: 'array'});
+
+      // Obtém a primeira planilha do Excel com as posições
+      var sheet_name_list = workbook.SheetNames;
+      var sheet_rent = workbook.Sheets[sheet_name_list[0]];
+
+      // Converte a tabela de posições para HTML
+      var html_rent = XLSX.utils.sheet_to_html(sheet_rent);
+
+      // Exibe a tabela de posições na página
+      var tabela_rent = document.getElementById('tabela_rent');
+      tabela_rent.innerHTML = html_rent;
+
+    }
+
+      xhr_rent.send()
+  </script>

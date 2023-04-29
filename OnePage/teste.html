@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplo de integração de tabela do Excel em HTML</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <h1>Tabela do Excel</h1>
+    <div id="tabela"></div>
+
+    <script>
+      // Carrega o arquivo do Excel
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'anbima_index.xlsx', true);
+      xhr.responseType = 'arraybuffer';
+
+      xhr.onload = function(e) {
+        var data = new Uint8Array(xhr.response);
+        var workbook = XLSX.read(data, {type: 'array'});
+
+        // Obtém a primeira planilha do Excel
+        var sheet_name_list = workbook.SheetNames;
+        var sheet = workbook.Sheets[sheet_name_list[0]];
+
+        // Converte a tabela para HTML
+        var html = XLSX.utils.sheet_to_html(sheet);
+
+        // Exibe a tabela na página
+        var tabela = document.getElementById('tabela');
+        tabela.innerHTML = html;
+      };
+
+      xhr.send();
+    </script>
+  </body>
+</html>
