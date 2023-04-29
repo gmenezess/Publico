@@ -39,12 +39,12 @@
             
             h2 {
               color: black;
-              text-align: center;
-              font-size: 1.25rem;
+             
+              font-size: 1.5rem;
             }
 
             .posicao-time {
-                padding-right: 140px;
+                padding-left: 650px;
                 color: #000;
             }
 
@@ -55,15 +55,19 @@
                 color: #fff;
             }
             .carteira {
-                padding-right: 215px;
+              padding-left: 300px;
             }
             
             .benchmark {
-                padding-right: 0px;
+                padding-left: 370px;
+            }
+
+            .rent {
+              padding-left: 575px;
             }
 
             .anbima {
-                padding-right: 135px;
+              padding-left: 250px;
             }
 
             .ima {
@@ -106,8 +110,8 @@
             .grid-container{
                 display: grid;
                 width: 100%;
-                grid-template-columns: auto auto;
-                grid-template-rows: repeat(3);
+                grid-template-columns: 70% 30%;
+                grid-template-rows: repeat(1);
                 
             }
 
@@ -125,6 +129,11 @@
                 padding-left: 10px;
             }
 
+            .item-1{
+                font-weight: bold;
+                padding-left: 20;
+            }
+
             .item2{
                 text-align: left;
                 width: 100%;
@@ -140,8 +149,8 @@
         
         <section>
           <div class="grid-container">
-            <div><table style="width: 920px; height: 301px;" border="1" class="tabela" id="tabela_cotacoes"></table></div>
-            <div><table style="width: 430px; height: 300px;" border="1" class="tabela" id="tabela_pos"></table></div>
+            <div><table  border="1" class="tabela" id="tabela_cotacoes"></table></div>
+            <div><table  border="1" class="tabela" id="tabela_pos"></table></div>
           </div>
         </section>
         <section class="hero-section">
@@ -154,14 +163,13 @@
         
         <section class="topico">
             <div class="topicos-container">
-              <h2><span>Rentabilidade</span></h2>
-              <h2 class="carteira"><span>Carteira </span></h2>
+              <h2 class="rent" ><span>Rentabilidade</span></h2>
             </div>
           </section>
           <section>
             <div class="grid-container">
-              <div class="item-1"><img src="imagens/infinity_cdi_ibov.png" width="630" alt="Imagem"><table style="width: 630px; height: 50px;" border="1" class="tabela" id="tabela_rent"></table></div>
-              <div class="item-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores possimus modi rem? Est, sunt? Deleniti, provident, pariatur repudiandae vel amet sapiente exercitationem laudantium dolorum eius, autem obcaecati deserunt omnis nostrum!</div>
+              <div class="item-1"><img src="imagens/infinity_cdi_ibov.png"  alt="Imagem"></div>
+              
             </div>
           </section>
           <section class="topico">
@@ -172,8 +180,8 @@
           </section>
           <section>
             <div class="grid-container">
-              <div><img src="imagens/Histograma_de_retorno .png" width="630" alt="Imagem"></div>
-              <div class="item-2"><img src="imagens/boxplot_ret_sharpe.png" width="360" alt="Imagem"><img src="imagens/boxplot_vol_cagr.png" width="360" alt="Imagem"></div>
+              <div><img class="img2" src="imagens/Histograma_de_retorno .png" alt="Imagem"></div>
+              <div class="item-2"><img class="img3" src="imagens/boxplot_ret_sharpe.png"  alt="Imagem"><img class="img3" src="imagens/boxplot_vol_cagr.png" alt="Imagem"></div>
               <div>
             </div>
             </div>
@@ -186,8 +194,8 @@
           </section>
           <section>
             <div class="grid-container">
-              <div><img src="imagens/Dispersão_de_retorno .png" width="630" alt="Imagem"></div>
-              <div class="ima"><img src="imagens/ima.png" width="400" alt="Imagem"></div>
+              <div><img class="img2" src="imagens/Dispersão_de_retorno .png"  alt="Imagem"></div>
+              <div class="ima"><img class="img2" src="imagens/ima.png" alt="Imagem"></div>
             </div>
           </section>
      </main>
