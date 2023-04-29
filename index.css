@@ -16,9 +16,6 @@
 
 }
 
-body{
-    padding: 0 1rem;
-}
 
 header,
 .hero-section {
@@ -39,23 +36,18 @@ header,
     width: 75%;
 }
 
-header img{
-    display: block;
-    margin: 1rem;
-    
+.head{
+    border-color: var(--color-dois);
+    border-style: solid;
+    border-width: 0 0px 0px 0px;
+    background-color: var(--color-dois);
+    width: 75%;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    
-  }
-  
+
 .logo-text {
-    margin-left: 5px;
     font-size: 3rem;
-    font-weight: bold;
-    padding-left: 180px;
+    padding-left: 700px;
     color: #fff; /* escolha uma cor que combine com o seu site */
 }
 
