@@ -24,7 +24,7 @@ header,
     border-width: 0 0px 0px 0px;
     padding: 0.5rem;
     background-color: var(--color-dois);
-    width: 75%;
+    width: 100%;
     color: #fff;
 }
 
@@ -33,7 +33,7 @@ header,
     border-style: solid;
     border-width: 0 0px 0px 0px;
     background-color: var(--color-tres);
-    width: 75%;
+    width: 100%;
 }
 
 .head{
@@ -41,7 +41,7 @@ header,
     border-style: solid;
     border-width: 0 0px 0px 0px;
     background-color: var(--color-dois);
-    width: 75%;
+    width: 100%;
 }
 
 
