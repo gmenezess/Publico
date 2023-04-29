@@ -200,7 +200,7 @@
 <script>
 // Carrega o arquivo do Excel com as cotações
 var xhr_cotacoes = new XMLHttpRequest();
-xhr_cotacoes.open('GET', 'cotacoes.xlsx', true);
+xhr_cotacoes.open('GET', 'tabelas/cotacoes.xlsx', true);
 xhr_cotacoes.responseType = 'arraybuffer';
 
 xhr_cotacoes.onload = function(e) {
@@ -260,7 +260,7 @@ xhr_cotacoes.send();
 
   // Carrega o arquivo do Excel com as posições
   var xhr_posicoes = new XMLHttpRequest();
-  xhr_posicoes.open('GET', 'pos_time.xlsx', true);
+  xhr_posicoes.open('GET', 'tabelas/pos_time.xlsx', true);
   xhr_posicoes.responseType = 'arraybuffer';
 
   xhr_posicoes.onload = function(e) {
@@ -299,7 +299,7 @@ xhr_cotacoes.send();
 
     // Carrega o arquivo do Excel com os bench
     var xhr_bench = new XMLHttpRequest();
-    xhr_bench.open('GET', 'benchmark_fundos.xlsx', true);
+    xhr_bench.open('GET', 'tabelas/benchmark_fundos.xlsx', true);
     xhr_bench.responseType = 'arraybuffer';
 
     xhr_bench.onload = function(e) {
@@ -324,7 +324,7 @@ xhr_cotacoes.send();
 
     // Carrega o arquivo do Excel com os bench
     var xhr_rent = new XMLHttpRequest();
-    xhr_rent.open('GET', 'rent_fundo.xlsx', true);
+    xhr_rent.open('GET', 'tabelas/rent_fundo.xlsx', true);
     xhr_rent.responseType = 'arraybuffer';
 
     xhr_rent.onload = function(e) {
