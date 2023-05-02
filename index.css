@@ -86,20 +86,53 @@ td {
 .tabela {
     border-collapse: collapse;
     
-  }
+}
   
-  .tabela td, .tabela th {
+.tabela td, .tabela th {
     border: 0.5px solid #ddd;
     padding: 5px;
     font-size: 16px;
-  }
+}
   
-  .tabela th {
-    background-color: #929AAB;
-  }
+.tabela th {
+    background-color: #a6a6a6;
+}
   
-  .tabela tr:nth-child(even) {
-    background-color: #929AAB;
-  }
+.tabela tr:nth-child(even) {
+    background-color: #a6a6a6;
+}
   
+
+.tabela2 {
+    border-collapse: collapse;
+    
+}
+  
+.tabela2 td, .tabela2 th {
+    border: 0.5px solid #ddd;
+    padding: 5px;
+    font-size: 16px;
+}
+  
+.tabela2 th {
+    background-color: #a6a6a6;
+}
+  
+.tabela2 tr:nth-child(even) {
+    background-color: #a6a6a6;
+}
+
+.tabela2 td:last-child {
+    background-color: #828282; /* Define a cor de fundo para a última coluna */
+}
+
+.tabela2 tr:nth-child(5) td {
+    background-color: #4d4d4d; /* Define a cor de fundo para a quinta linha */
+}
+
+.tabela2 tr:nth-child(1) td {
+    background-color: #4d4d4d; /* Define a cor de fundo para a quinta linha */
+}
+
+
 

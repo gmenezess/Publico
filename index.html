@@ -168,7 +168,7 @@
           <section>
             <div>
               <div><img class="img1" src="imagens/infinity_cdi_ibov.png"  alt="Imagem"></div>
-              
+              <div><table  border="1" class="tabela2" id="tabela_rentabilidade"></table></div>
             </div>
           </section>
           <section class="topico">
@@ -352,4 +352,31 @@ xhr_cotacoes.send();
     }
 
       xhr_rent.send()
+
+
+
+
+       // Carrega o arquivo do Excel com as posições
+      var xhr_rentabilidade = new XMLHttpRequest();
+      xhr_rentabilidade.open('GET', 'tabelas/rentabilidade.xlsx', true);
+      xhr_rentabilidade.responseType = 'arraybuffer';
+
+      xhr_rentabilidade.onload = function(e) {
+        var data = new Uint8Array(xhr_rentabilidade.response);
+        var workbook = XLSX.read(data, {type: 'array'});
+
+        // Obtém a primeira planilha do Excel com as posições
+        var sheet_name_list = workbook.SheetNames;
+        var sheet_rentabilidade = workbook.Sheets[sheet_name_list[0]];
+
+        // Converte a tabela de posições para HTML
+        var html_rentabilidade = XLSX.utils.sheet_to_html(sheet_rentabilidade);
+
+        // Exibe a tabela de posições na página
+        var tabela_rentabilidade = document.getElementById('tabela_rentabilidade');
+        tabela_rentabilidade.innerHTML = html_rentabilidade;
+
+        };
+
+        xhr_rentabilidade.send()
   </script>
