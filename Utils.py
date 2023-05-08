@@ -20,6 +20,12 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import seaborn as sns
 import seaborn as sns; sns.set_theme()
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import pandas as pd
+from pandas.tseries.offsets import *
+
 
 
 from warnings import warn
@@ -307,3 +313,124 @@ def get_ret_cdi_ibov(data_inicio, data_fim):
     ibov_ret_total = (ibov[-1]/100 -1)*100
 
     return cdi_ret_total, ibov_ret_total, vol_ano_ibov, ret_ano_ibov
+
+def curva_di(data):
+    from datetime import datetime
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install())) 
+    
+    data_di = f"{data}"
+    mercadoria = 'DI1'
+
+    url = f'''
+    https://www2.bmf.com.br/pages/portal/bmfbovespa/boletim1/SistemaPregao1.asp?pagetype=pop&caminho=Resumo%20
+    Estat%EDstico%20-%20Sistema%20Preg%E3o&Data={data_di}&Mercadoria={mercadoria}
+    '''
+
+    driver.get(url)
+
+    driver.implicitly_wait(3)
+
+    '''
+    esse método de congelar é MUITO mais eficiente que o time, porque ele só espera o tempo necessário.
+    se o elemento que você quer achar já carregou, ele roda e acabou. 
+    '''
+
+    driver.maximize_window()
+
+    #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options = options) 
+
+
+    local_tabela = '''
+    /html/body/div/div[2]/form[1]/table[3]/tbody/tr[3]/td[3]/table
+    '''
+
+    local_indice = '''
+    /html/body/div/div[2]/form[1]/table[3]/tbody/tr[3]/td[1]/table
+    '''
+
+    elemento = driver.find_element("xpath", local_tabela)
+
+    #pode ser ID, class_, XPATH ou name (vc so vai usar um dos 4)
+
+    elemento_indice = driver.find_element("xpath", local_indice)
+
+    html_tabela = elemento.get_attribute('outerHTML')
+    html_indice = elemento_indice.get_attribute('outerHTML')
+
+    tabela = pd.read_html(html_tabela)[0]
+    indice = pd.read_html(html_indice)[0]
+
+    driver.quit()
+
+    tabela.columns = tabela.loc[0]
+
+    tabela = tabela['ÚLT. PREÇO']
+
+    tabela = tabela.drop(0, axis = 0)
+
+    indice.columns = indice.loc[0]
+
+    indice_di = indice['VENCTO']
+
+    indice = indice.drop(0, axis = 0)
+
+    tabela.index = indice['VENCTO']
+
+    tabela = tabela.astype(int)
+
+    tabela = tabela[tabela != 0]
+
+    tabela = tabela/1000
+
+    legenda = pd.Series(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        index = ['F', 'G', 'H', 'J', 'K', 'M', 'N', 'Q', 'U', 'V', 'X', 'Z'])
+
+    lista_datas = []
+
+    for indice in tabela.index:
+
+        letra = indice[0]
+        
+        legenda["F"]
+        ano = indice[1:3]
+
+        mes = legenda[letra]
+
+        data = f"{mes}-{ano}"
+
+        data = datetime.strptime(data, "%b-%y")
+
+        lista_datas.append(data)
+
+
+    tabela.index = lista_datas  
+
+    return tabela
+
+def curva_interpolada(data, hoje):
+    curva_dias_uteis = []
+
+    curva = curva_di(data)
+
+    for dia in curva.index:
+        
+        dias_uteis = len(pd.date_range(hoje, dia, freq=BDay()))
+        
+        curva_dias_uteis.append(dias_uteis)
+        
+    curva.index = curva_dias_uteis
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from scipy.interpolate import UnivariateSpline
+
+    # Crie um objeto UnivariateSpline com um parâmetro de suavização de 0,5
+    spline = UnivariateSpline(curva.index, curva, s=0.05)
+
+    # Crie uma nova lista de valores X para interpolar
+    new_x = np.linspace(curva.index.min(), curva.index.max(), num=1000)
+
+    # Calcule os valores correspondentes de Y para a nova lista de valores X
+    new_y = spline(new_x)
+
+    return new_x, new_y
