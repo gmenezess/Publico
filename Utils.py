@@ -386,10 +386,13 @@ def curva_di(data):
                         index = ['F', 'G', 'H', 'J', 'K', 'M', 'N', 'Q', 'U', 'V', 'X', 'Z'])
 
     lista_datas = []
+    vertices = []
+
 
     for indice in tabela.index:
 
         letra = indice[0]
+
         
         legenda["F"]
         ano = indice[1:3]
@@ -402,15 +405,18 @@ def curva_di(data):
 
         lista_datas.append(data)
 
+        if letra =='F':
+            vertices.append(data)
+
 
     tabela.index = lista_datas  
 
-    return tabela
+    return tabela, vertices
 
 def curva_interpolada(data, hoje):
     curva_dias_uteis = []
 
-    curva = curva_di(data)
+    curva, vertices = curva_di(data)
 
     for dia in curva.index:
         
@@ -420,12 +426,21 @@ def curva_interpolada(data, hoje):
         
     curva.index = curva_dias_uteis
 
+    curva_dias_uteis = []
+    for vet in vertices:
+        
+        dias_uteis = len(pd.date_range(hoje, vet, freq=BDay()))
+        
+        curva_dias_uteis.append(dias_uteis)
+        
+    vertices = curva_dias_uteis
+
     import numpy as np
     import matplotlib.pyplot as plt
     from scipy.interpolate import UnivariateSpline
 
     # Crie um objeto UnivariateSpline com um parâmetro de suavização de 0,5
-    spline = UnivariateSpline(curva.index, curva, s=0.05)
+    spline = UnivariateSpline(curva.index, curva, s=0.1)
 
     # Crie uma nova lista de valores X para interpolar
     new_x = np.linspace(curva.index.min(), curva.index.max(), num=1000)
@@ -433,4 +448,4 @@ def curva_interpolada(data, hoje):
     # Calcule os valores correspondentes de Y para a nova lista de valores X
     new_y = spline(new_x)
 
-    return new_x, new_y
+    return new_x, new_y, vertices
